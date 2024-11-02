@@ -48,6 +48,27 @@
             bindings = <&kp LC(B) &kp COLON &kp K &kp I &kp L &kp L &kp MINUS &kp S &kp E &kp S &kp S &kp I &kp O &kp N &kp ENTER>;
             label = "TMUX_KILL_SESSION";
         };
+
+        tmux_new_pan_v: tmux_new_pan_v {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(B) &kp LS(DOUBLE_QUOTES)>;
+            label = "TMUX_NEW_PAN_V";
+        };
+
+        tmux_close_pan: tmux_close_pan {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(B) &kp X>;
+            label = "TMUX_CLOSE_PAN";
+        };
+
+        tmux_new_tab: tmux_new_tab {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(B) &kp C>;
+            label = "TMUX_NEW_TAB";
+        };
     };
 
     keymap {
@@ -123,11 +144,11 @@
 
         layer_4 {
             bindings = <
-&tmux_kill_session  &trans  &trans  &trans  &trans  &trans                    &trans           &trans  &trans  &trans  &trans  &trans
-&trans              &trans  &trans  &trans  &trans  &trans                    &trans           &trans  &trans  &trans  &trans  &trans
-&trans              &trans  &trans  &trans  &trans  &trans                    &tmux_new_pan_h  &trans  &trans  &trans  &trans  &trans
-&trans              &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans           &trans  &trans  &trans  &trans  &trans
-                            &trans  &trans  &trans  &trans  &trans    &trans  &trans           &trans  &trans  &trans
+&tmux_kill_session  &trans  &trans  &trans           &trans           &trans                    &trans           &trans  &trans  &trans  &trans  &trans
+&trans              &trans  &trans  &trans           &trans           &trans                    &trans           &trans  &trans  &trans  &trans  &trans
+&trans              &trans  &trans  &trans           &trans           &trans                    &tmux_new_pan_h  &trans  &trans  &trans  &trans  &trans
+&trans              &trans  &trans  &tmux_close_pan  &tmux_new_pan_v  &trans  &trans    &trans  &tmux_new_tab    &trans  &trans  &trans  &trans  &trans
+                            &trans  &trans           &trans           &trans  &trans    &trans  &trans           &trans  &trans  &trans
             >;
         };
     };
