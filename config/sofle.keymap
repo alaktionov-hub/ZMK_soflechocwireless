@@ -34,6 +34,13 @@
             bindings = <&kp LC(TAB)>;
             label = "TAB_RIGHT";
         };
+
+        tmux_new_pan_h: tmux_new_pan_h {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(B) &kp LS(PERCENT)>;
+            label = "TMUX_NEW_PAN_H";
+        };
     };
 
     keymap {
@@ -99,21 +106,21 @@
 
         layer_3 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &trans         &trans  &kp INS    &trans      &trans  &trans
+&trans      &trans        &trans        &trans        &trans        &trans                          &kp PAGE_UP    &trans  &trans     &trans      &trans  &kp BACKSPACE
+&trans      &trans        &trans        &trans        &trans        &trans                          &kp PAGE_DOWN  &trans  &trans     &trans      &trans  &kp DEL
+&trans      &trans        &trans        &trans        &trans        &trans        &trans    &trans  &trans         &trans  &tab_left  &tab_right  &trans  &trans
+                          &trans        &trans        &trans        &trans        &trans    &trans  &trans         &trans  &trans     &trans
             >;
         };
 
         layer_4 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans           &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans           &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &tmux_new_pan_h  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans           &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans    &trans  &trans           &trans  &trans  &trans
             >;
         };
     };
