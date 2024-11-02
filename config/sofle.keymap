@@ -41,6 +41,13 @@
             bindings = <&kp LC(B) &kp LS(PERCENT)>;
             label = "TMUX_NEW_PAN_H";
         };
+
+        tmux_kill_session: tmux_kill_session {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(B) &kp COLON &kp K &kp I &kp L &kp L &kp MINUS &kp S &kp E &kp S &kp S &kp I &kp O &kp N &kp ENTER>;
+            label = "TMUX_KILL_SESSION";
+        };
     };
 
     keymap {
@@ -116,11 +123,11 @@
 
         layer_4 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans           &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans           &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &tmux_new_pan_h  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans           &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans    &trans  &trans           &trans  &trans  &trans
+&tmux_kill_session  &trans  &trans  &trans  &trans  &trans                    &trans           &trans  &trans  &trans  &trans  &trans
+&trans              &trans  &trans  &trans  &trans  &trans                    &trans           &trans  &trans  &trans  &trans  &trans
+&trans              &trans  &trans  &trans  &trans  &trans                    &tmux_new_pan_h  &trans  &trans  &trans  &trans  &trans
+&trans              &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans           &trans  &trans  &trans  &trans  &trans
+                            &trans  &trans  &trans  &trans  &trans    &trans  &trans           &trans  &trans  &trans
             >;
         };
     };
